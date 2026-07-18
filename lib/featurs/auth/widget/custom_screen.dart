@@ -32,7 +32,7 @@ class _CustomScreenState extends State<CustomScreen> {
 
           // SVG Image
           Positioned(
-            top: 110,
+            top: 30,
             left: 10,
             right: 10,
             child: Center(

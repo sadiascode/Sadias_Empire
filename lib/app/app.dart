@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../featurs/auth/screen/login_screen.dart';
+import '../common/app_shell.dart';
 
 class SadiasEmpire extends StatelessWidget {
   const SadiasEmpire({super.key});
@@ -9,7 +10,11 @@ class SadiasEmpire extends StatelessWidget {
     return MaterialApp(
       title: "Sadias Empire",
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginScreen(),
+        '/main': (context) => const AppShell(),
+      },
     );
   }
 }

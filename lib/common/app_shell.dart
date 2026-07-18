@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../featurs/Chat/screen/chat_screen.dart';
-import '../featurs/about/screen/about_screen.dart';
 import '../featurs/home/screen/home_screen.dart';
 import '../featurs/products/screen/products_screen.dart';
 import '../featurs/profile/screen/profile_screen.dart';
+import '../featurs/orders/screen/orders_screen.dart';
 import 'Navbar/bottom_tab_item.dart';
 import 'Navbar/custom_bottom_nav.dart';
-
+import 'app_state.dart';
 
 class AppShell extends StatefulWidget {
   final int initialIndex;
@@ -27,35 +27,67 @@ class _AppShellState extends State<AppShell> {
     super.initState();
     _currentIndex = widget.initialIndex;
 
+    final role = AppState.currentRole;
 
-    _bottomTabs = [
-      BottomTabItem(
-        label: "Home",
-        icon: Icon(Icons.home),
-        page: const HomeScreen(),
-      ),
-      BottomTabItem(
-        label: "Products",
-        icon: Icon(Icons.shopping_bag),
-        page: ProductsScreen(),
-      ),
-      BottomTabItem(
-        label: "Chat",
-        icon: Icon(Icons.chat),
-        page: ChatScreen(),
-        isCenter: true,
-      ),
-      BottomTabItem(
-        label: "About Us",
-        icon: Icon(Icons.info),
-        page: AboutScreen(),
-      ),
-      BottomTabItem(
-        label: "Profile",
-        icon: Icon(Icons.person),
-        page: ProfileScreen(),
-      ),
-    ];
+    if (role == UserRole.buyer) {
+      _bottomTabs = [
+        BottomTabItem(
+          label: "Home",
+          icon: const Icon(Icons.dashboard_outlined),
+          page: const HomeScreen(),
+        ),
+        BottomTabItem(
+          label: "Catalog",
+          icon: const Icon(Icons.shopping_bag_outlined),
+          page: const ProductsScreen(),
+        ),
+        BottomTabItem(
+          label: "Secure Chat",
+          icon: const Icon(Icons.forum_outlined),
+          page: const ChatScreen(),
+          isCenter: true,
+        ),
+        BottomTabItem(
+          label: "My Armory",
+          icon: const Icon(Icons.shield_outlined),
+          page: const OrdersScreen(),
+        ),
+        BottomTabItem(
+          label: "Profile",
+          icon: const Icon(Icons.account_circle_outlined),
+          page: const ProfileScreen(),
+        ),
+      ];
+    } else {
+      _bottomTabs = [
+        BottomTabItem(
+          label: "Dashboard",
+          icon: const Icon(Icons.analytics_outlined),
+          page: const HomeScreen(),
+        ),
+        BottomTabItem(
+          label: "Inventory",
+          icon: const Icon(Icons.inventory_2_outlined),
+          page: const ProductsScreen(),
+        ),
+        BottomTabItem(
+          label: "Inbox",
+          icon: const Icon(Icons.message_outlined),
+          page: const ChatScreen(),
+          isCenter: true,
+        ),
+        BottomTabItem(
+          label: "FFL Orders",
+          icon: const Icon(Icons.fact_check_outlined),
+          page: const OrdersScreen(),
+        ),
+        BottomTabItem(
+          label: "Dealer Profile",
+          icon: const Icon(Icons.admin_panel_settings_outlined),
+          page: const ProfileScreen(),
+        ),
+      ];
+    }
 
     _pages = _bottomTabs.map((tab) => tab.page).toList();
   }
@@ -99,41 +131,74 @@ class SubPageScaffold extends StatelessWidget {
     this.backgroundColor,
   });
 
-
-  static List<BottomTabItem> get _bottomTabs => [
-    BottomTabItem(
-      label: "Home",
-      icon: Icon(Icons.home),
-      page: HomeScreen(),
-    ),
-    BottomTabItem(
-      label: "Products",
-      icon: Icon(Icons.shopping_bag),
-      page: ProductsScreen(),
-    ),
-    BottomTabItem(
-      label: "Chat",
-      icon: Icon(Icons.info),
-      page: ChatScreen(),
-      isCenter: true,
-    ),
-    BottomTabItem(
-      label: "About Us",
-      icon: Icon(Icons.chat),
-      page: AboutScreen(),
-    ),
-    BottomTabItem(
-      label: "Profile",
-      icon: Icon(Icons.person),
-      page: const SizedBox(),
-    ),
-  ];
+  static List<BottomTabItem> get _bottomTabs {
+    final role = AppState.currentRole;
+    if (role == UserRole.buyer) {
+      return [
+        BottomTabItem(
+          label: "Home",
+          icon: const Icon(Icons.dashboard_outlined),
+          page: const HomeScreen(),
+        ),
+        BottomTabItem(
+          label: "Catalog",
+          icon: const Icon(Icons.shopping_bag_outlined),
+          page: const ProductsScreen(),
+        ),
+        BottomTabItem(
+          label: "Secure Chat",
+          icon: const Icon(Icons.forum_outlined),
+          page: const ChatScreen(),
+          isCenter: true,
+        ),
+        BottomTabItem(
+          label: "My Armory",
+          icon: const Icon(Icons.shield_outlined),
+          page: const OrdersScreen(),
+        ),
+        BottomTabItem(
+          label: "Profile",
+          icon: const Icon(Icons.account_circle_outlined),
+          page: const ProfileScreen(),
+        ),
+      ];
+    } else {
+      return [
+        BottomTabItem(
+          label: "Dashboard",
+          icon: const Icon(Icons.analytics_outlined),
+          page: const HomeScreen(),
+        ),
+        BottomTabItem(
+          label: "Inventory",
+          icon: const Icon(Icons.inventory_2_outlined),
+          page: const ProductsScreen(),
+        ),
+        BottomTabItem(
+          label: "Inbox",
+          icon: const Icon(Icons.message_outlined),
+          page: const ChatScreen(),
+          isCenter: true,
+        ),
+        BottomTabItem(
+          label: "FFL Orders",
+          icon: const Icon(Icons.fact_check_outlined),
+          page: const OrdersScreen(),
+        ),
+        BottomTabItem(
+          label: "Dealer Profile",
+          icon: const Icon(Icons.admin_panel_settings_outlined),
+          page: const ProfileScreen(),
+        ),
+      ];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: backgroundColor ?? const Color(0xFFFFFAF7),
+      backgroundColor: backgroundColor ?? const Color(0xFF0F172A),
       appBar: appBar,
       body: body,
       bottomNavigationBar: CustomBottomNav(
@@ -144,7 +209,7 @@ class SubPageScaffold extends StatelessWidget {
             MaterialPageRoute(
               builder: (_) => AppShell(initialIndex: index),
             ),
-                (route) => false,
+            (route) => false,
           );
         },
       ),

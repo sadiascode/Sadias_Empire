@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/featurs/auth/screen/verify_screen.dart';
+import 'package:sadias_empire/featurs/auth/screen/verify_screen.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
 import '../widget/custom_textfield.dart';
@@ -20,8 +20,8 @@ class _ForgetScreenState extends State<ForgetScreen> {
     return Scaffold(
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 240,
-        svgWidth: 700,
+        svgHeight: 180,
+        svgWidth: 320,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
