@@ -40,7 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
 
               // Operational Mode / Role Toggle
               const Text(

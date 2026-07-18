@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.darkBackground,
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
+        svgHeight: 120,
         svgWidth: 320,
         child: SingleChildScrollView(
           child: Column(

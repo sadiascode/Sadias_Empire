@@ -26,7 +26,7 @@ class _ResetScreenState extends State<ResetScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const Center(
               child: Text(
                 "Set a new password",
@@ -49,12 +49,12 @@ class _ResetScreenState extends State<ResetScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 35),
+            const SizedBox(height: 30),
             CustomTextfield(
               hintText: "New Password",
               isPassword: true,
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 12),
             CustomTextfield(
               hintText: "Retype New Password",
               isPassword: true,

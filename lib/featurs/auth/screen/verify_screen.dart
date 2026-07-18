@@ -30,7 +30,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 25),
+            const SizedBox(height: 10),
             const Center(
               child: Text(
                 "Check your email",
@@ -53,7 +53,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
             PinCodeTextField(
               length: 6,
               obscureText: false,
@@ -72,7 +72,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
               animationDuration: const Duration(milliseconds: 300),
               appContext: context,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height:7),
             Align(
               alignment: Alignment.centerRight,
               child: InkWell(
@@ -98,7 +98,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             CustomButton(
               text: "Verify code",
               onTap: (){

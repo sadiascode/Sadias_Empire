@@ -26,7 +26,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 25),
+            const SizedBox(height: 10),
             const Center(
               child: Text(
                 "Forgot Password?",
@@ -50,7 +50,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
 
             Text(
               "Email",
