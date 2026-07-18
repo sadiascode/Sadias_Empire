@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../common/Navbar/custom_button.dart';
 import '../widget/custom_screen.dart';
 import '../widget/custom_textfield.dart';
 
@@ -73,31 +73,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const ()),
-                    );
-                  },
-                  child: const Text(
-                    "Forgot Password?",
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
+
             const SizedBox(height: 10),
 
             loading
                 ? const Center(child: CircularProgressIndicator())
                 : CustomButton(
-              text: "Sign in",
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => const AppShell(initialIndex: 0)),
-                );},
+              text: "Sign in", onTap: () {  },
+
             ),
 
             const SizedBox(height: 16),
@@ -110,10 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const SignupScreen()),
-                    );
+
                   },
                   child: const Text(
                     "Sign Up",
@@ -128,7 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
-      ),
+]     ),
+    ),
     );
   }
 }
