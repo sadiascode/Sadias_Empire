@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import '../featurs/auth/screen/login_screen.dart';
+import '../featurs/auth/login_screen.dart';
 
-
-class TechZone extends StatelessWidget {
-  const TechZone({super.key});
+class SadiasEmpire extends StatelessWidget {
+  const SadiasEmpire({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Tech Zone",
+      title: "Sadias Empire",
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
     );
