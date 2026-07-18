@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../featurs/auth/login_screen.dart';
+import '../featurs/auth/screen/login_screen.dart';
 
 class SadiasEmpire extends StatelessWidget {
   const SadiasEmpire({super.key});
