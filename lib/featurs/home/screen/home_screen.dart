@@ -174,29 +174,69 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: [
               FirearmCard(
-                imageUrl: 'assets/M9A4.png', category: "Handgun",
-                title: "M9A4", caliber: "9×19mm",
-                price: 1249.00,onTap: (){}, ),
-
+                imageUrl: 'assets/M9A4.png',
+                category: "Handgun",
+                title: "M9A4",
+                caliber: "9×19mm",
+                price: 1249.00,
+                onTap: (){},
+              ),
               FirearmCard(
-                imageUrl: 'assets/M9A4.png', category: "Handgun",
-                title: "M9A4", caliber: "9×19mm",
-                price: 1249.00,onTap: (){}, ),
-
+                imageUrl: 'assets/mcx_lt.jpeg',
+                category: "Rifle",
+                title: "MCX LT",
+                caliber: "5.56×45mm",
+                price: 1999.00,
+                onTap: () {},
+              ),
               FirearmCard(
-                imageUrl: 'assets/M9A4.png', category: "Handgun",
-                title: "M9A4", caliber: "9×19mm",
-                price: 1249.00,onTap: (){}, ),
-
+                imageUrl: 'assets/model10.jpg',
+                category: "Handgun",
+                title: "S&W Model 10",
+                caliber: ".38 Special",
+                price: 749.00,
+                onTap: () {},
+              ),
               FirearmCard(
-                imageUrl: 'assets/M9A4.png', category: "Handgun",
-                title: "M9A4", caliber: "9×19mm",
-                price: 1249.00,onTap: (){}, ),
-
+                imageUrl: 'assets/XR.jpg',
+                category: "Rifle",
+                title: "XR-15",
+                caliber: "5.56",
+                price: 1499.00,
+                onTap: () {},
+              ),
               FirearmCard(
-                imageUrl: 'assets/M9A4.png', category: "Handgun",
-                title: "M9A4", caliber: "9×19mm",
-                price: 1249.00,onTap: (){}, ),
+                imageUrl: 'assets/colt1849.webp',
+                category: "Handgun",
+                title: "Colt 1849",
+                caliber: ".31 Caliber",
+                price: 899.00,
+                onTap: () {},
+              ),
+              FirearmCard(
+                imageUrl: 'assets/beretta.png',
+                category: "Shotgun",
+                title: "Beretta A300 Solid Marsh",
+                caliber: "12 Gauge",
+                price: 1099.00,
+                onTap: () {},
+              ),
+              FirearmCard(
+                imageUrl: 'assets/beretta_a300.jpeg',
+                category: "Shotgun",
+                title: "A300 Ultima",
+                caliber: "12 Gauge",
+                price: 1099.00,
+                onTap: () {},
+              ),
+              FirearmCard(
+                imageUrl: 'assets/air_rifle.jpeg',
+                category: "Air Rifle",
+                title: "AirForce Texan",
+                caliber: ".45 Cal",
+                price: 1299.00,
+                onTap: () {},
+              ),
             ],
           ),
          ),
@@ -222,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        "Federal Firearm License (FFL) Rule",
+                        "Important Information",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -231,7 +271,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        "Firearms cannot be shipped directly to your house. We ship strictly to a certified FFL dealer near you. You will undergo background check verification at the time of pickup.",
+                       "We're committed to making the buying process simple and compliant with federal law."
+                       "Every firearm purchase is securely shipped to a licensed FFL dealer, where a background check is completed before pickup.",
                         style: TextStyle(
                           color: AppColors.textMuted,
                           fontSize: 12,
