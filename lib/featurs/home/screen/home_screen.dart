@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sadias_empire/featurs/home/widget/firearm_card.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
 import '../widget/build_category_card.dart';
@@ -168,6 +169,37 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 12),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              FirearmCard(
+                imageUrl: 'assets/M9A4.png', category: "Handgun",
+                title: "M9A4", caliber: "9×19mm",
+                price: 1249.00,onTap: (){}, ),
+
+              FirearmCard(
+                imageUrl: 'assets/M9A4.png', category: "Handgun",
+                title: "M9A4", caliber: "9×19mm",
+                price: 1249.00,onTap: (){}, ),
+
+              FirearmCard(
+                imageUrl: 'assets/M9A4.png', category: "Handgun",
+                title: "M9A4", caliber: "9×19mm",
+                price: 1249.00,onTap: (){}, ),
+
+              FirearmCard(
+                imageUrl: 'assets/M9A4.png', category: "Handgun",
+                title: "M9A4", caliber: "9×19mm",
+                price: 1249.00,onTap: (){}, ),
+
+              FirearmCard(
+                imageUrl: 'assets/M9A4.png', category: "Handgun",
+                title: "M9A4", caliber: "9×19mm",
+                price: 1249.00,onTap: (){}, ),
+            ],
+          ),
+         ),
 
           const SizedBox(height: 20),
 

@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+import '../../../common/custom_color.dart';
+
 class FirearmCard extends StatelessWidget {
   final String imageUrl;
   final String category;
@@ -39,7 +43,7 @@ class FirearmCard extends StatelessWidget {
               ),
               child: Image.network(
                 imageUrl,
-                height: 100, // Fixed
+                height: 120,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => Container(
