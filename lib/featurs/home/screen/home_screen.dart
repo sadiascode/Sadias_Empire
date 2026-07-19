@@ -3,6 +3,7 @@ import 'package:sadias_empire/featurs/home/widget/firearm_card.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
 import '../widget/build_category_card.dart';
+import '../widget/chart_bar.dart';
 import '../widget/state_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Image.asset(
               'assets/logo.png',
               height: 40,
-              errorBuilder: (context, error, stackTrace) => const Icon(
+              errorBuilder: (context, error, stackTrace) =>
+              const Icon(
                 Icons.radar,
                 color: AppColors.secondary,
               ),
@@ -48,14 +50,16 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Badge(
               label: Text("1"),
-              child: Icon(Icons.notifications_active_outlined, color: Colors.white),
+              child: Icon(
+                  Icons.notifications_active_outlined, color: Colors.white),
             ),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white),
             onPressed: () {
-              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/', (route) => false);
             },
           ),
         ],
@@ -88,7 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppColors.secondary.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(6),
@@ -143,9 +148,15 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               children: [
-                BuildCategoryCard (  title:"Handguns", subtitle: 'Pistols', icon: Icons.settings,),
-                BuildCategoryCard (title: "Rifles",icon:  Icons.api,subtitle:  "Assault & Carbine"),
-                BuildCategoryCard (title: "Shotguns",icon:  Icons.crop_portrait,subtitle:  "Heavy Duty"),
+                BuildCategoryCard(title: "Handguns",
+                  subtitle: 'Pistols',
+                  icon: Icons.settings,),
+                BuildCategoryCard(title: "Rifles",
+                    icon: Icons.api,
+                    subtitle: "Assault & Carbine"),
+                BuildCategoryCard(title: "Shotguns",
+                    icon: Icons.crop_portrait,
+                    subtitle: "Heavy Duty"),
               ],
             ),
           ),
@@ -170,77 +181,77 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 12),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              FirearmCard(
-                imageUrl: 'assets/M9A4.png',
-                category: "Handgun",
-                title: "M9A4",
-                caliber: "9×19mm",
-                price: 1249.00,
-                onTap: (){},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/mcx_lt.jpeg',
-                category: "Rifle",
-                title: "MCX LT",
-                caliber: "5.56×45mm",
-                price: 1999.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/model10.jpg',
-                category: "Handgun",
-                title: "S&W Model 10",
-                caliber: ".38 Special",
-                price: 749.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/XR.jpg',
-                category: "Rifle",
-                title: "XR-15",
-                caliber: "5.56",
-                price: 1499.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/colt1849.webp',
-                category: "Handgun",
-                title: "Colt 1849",
-                caliber: ".31 Caliber",
-                price: 899.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/beretta.png',
-                category: "Shotgun",
-                title: "Beretta A300 Solid Marsh",
-                caliber: "12 Gauge",
-                price: 1099.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/beretta_a300.jpeg',
-                category: "Shotgun",
-                title: "A300 Ultima",
-                caliber: "12 Gauge",
-                price: 1099.00,
-                onTap: () {},
-              ),
-              FirearmCard(
-                imageUrl: 'assets/air_rifle.jpeg',
-                category: "Air Rifle",
-                title: "AirForce Texan",
-                caliber: ".45 Cal",
-                price: 1299.00,
-                onTap: () {},
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                FirearmCard(
+                  imageUrl: 'assets/M9A4.png',
+                  category: "Handgun",
+                  title: "M9A4",
+                  caliber: "9×19mm",
+                  price: 1249.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/mcx_lt.jpeg',
+                  category: "Rifle",
+                  title: "MCX LT",
+                  caliber: "5.56×45mm",
+                  price: 1999.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/model10.jpg',
+                  category: "Handgun",
+                  title: "S&W Model 10",
+                  caliber: ".38 Special",
+                  price: 749.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/XR.jpg',
+                  category: "Rifle",
+                  title: "XR-15",
+                  caliber: "5.56",
+                  price: 1499.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/colt1849.webp',
+                  category: "Handgun",
+                  title: "Colt 1849",
+                  caliber: ".31 Caliber",
+                  price: 899.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/beretta.png',
+                  category: "Shotgun",
+                  title: "Beretta A300 Solid Marsh",
+                  caliber: "12 Gauge",
+                  price: 1099.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/beretta_a300.jpeg',
+                  category: "Shotgun",
+                  title: "A300 Ultima",
+                  caliber: "12 Gauge",
+                  price: 1099.00,
+                  onTap: () {},
+                ),
+                FirearmCard(
+                  imageUrl: 'assets/air_rifle.jpeg',
+                  category: "Air Rifle",
+                  title: "AirForce Texan",
+                  caliber: ".45 Cal",
+                  price: 1299.00,
+                  onTap: () {},
+                ),
+              ],
+            ),
           ),
-         ),
 
           const SizedBox(height: 20),
 
@@ -256,7 +267,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.shield_outlined, color: AppColors.secondary, size: 28),
+                const Icon(Icons.shield_outlined, color: AppColors.secondary,
+                    size: 28),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -272,8 +284,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(height: 4),
                       Text(
-                       "We're committed to making the buying process simple and compliant with federal law."
-                       "Every firearm purchase is securely shipped to a licensed FFL dealer, where a background check is completed before pickup.",
+                        "We're committed to making the buying process simple and compliant with federal law."
+                            "Every firearm purchase is securely shipped to a licensed FFL dealer, where a background check is completed before pickup.",
                         style: TextStyle(
                           color: AppColors.textMuted,
                           fontSize: 12,
@@ -309,7 +321,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   end: Alignment.bottomRight,
                 ),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.secondary.withOpacity(0.5), width: 1.5),
+                border: Border.all(
+                    color: AppColors.secondary.withOpacity(0.5), width: 1.5),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -327,7 +340,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.green.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(4),
@@ -335,7 +349,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: const Text(
                           "ONLINE",
-                          style: TextStyle(color: Colors.green, fontSize: 9, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.green,
+                              fontSize: 9,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -343,7 +359,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 10),
                   const Text(
                     "Empire Sadia Ltd.",
-                    style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   const Text(
@@ -357,7 +375,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
             const Text(
               "COMMERCIAL STATS",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5),
+              style: TextStyle(color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  letterSpacing: 0.5),
             ),
             const SizedBox(height: 12),
             GridView.count(
@@ -368,15 +389,30 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisSpacing: 12,
               childAspectRatio: 1.7,
               children: [
-                StatCard(title:"Total Revenue",value:"\$48,920.00",icon: Icons.monetization_on,iconColor: Colors.green),
-                StatCard(title: "Pending FFL Check",value: "1 Orders",icon: Icons.pending_actions,iconColor:  AppColors.secondary),
-                StatCard(title: "Items Listed", value: "4 Weapons",icon: Icons.inventory_2_outlined,iconColor:  AppColors.accent),
-                StatCard(title: "Average Rating",value:  "4.9 (182)",icon: Icons.star,iconColor: Colors.amber),
+                StatCard(title: "Total Revenue",
+                    value: "\$48,920.00",
+                    icon: Icons.monetization_on,
+                    iconColor: Colors.green),
+                StatCard(title: "Pending FFL Check",
+                    value: "1 Orders",
+                    icon: Icons.pending_actions,
+                    iconColor: AppColors.secondary),
+                StatCard(title: "Items Listed",
+                    value: "4 Weapons",
+                    icon: Icons.inventory_2_outlined,
+                    iconColor: AppColors.accent),
+                StatCard(title: "Average Rating",
+                    value: "4.9 (182)",
+                    icon: Icons.star,
+                    iconColor: Colors.amber),
               ],
             ),
             const Text(
               "MONTHLY REVENUE TREND",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5),
+              style: TextStyle(color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  letterSpacing: 0.5),
             ),
             const SizedBox(height: 12),
             Container(
@@ -390,13 +426,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
-                      Text("\$50k", style: TextStyle(color: AppColors.textMuted, fontSize: 11)),
-                      Text("\$25k", style: TextStyle(color: AppColors.textMuted, fontSize: 11)),
-                      Text("0", style: TextStyle(color: AppColors.textMuted, fontSize: 11)),
+                      Text("\$50k", style: TextStyle(
+                          color: AppColors.textMuted, fontSize: 11)),
+                      Text("\$25k", style: TextStyle(
+                          color: AppColors.textMuted, fontSize: 11)),
+                      Text("0", style: TextStyle(
+                          color: AppColors.textMuted, fontSize: 11)),
                     ],
                   ),
                   const SizedBox(height: 8),
-                  // Mock Chart Bar Line
                   Container(
                     height: 80,
                     width: double.infinity,
@@ -405,11 +443,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        _buildChartBar(30, "Mar"),
-                        _buildChartBar(45, "Apr"),
-                        _buildChartBar(20, "May"),
-                        _buildChartBar(75, "Jun"),
-                        _buildChartBar(90, "Jul"),
+                        ChartBar(height: 50, month: "Jan"),
+                        ChartBar(height: 90, month: "Feb"),
+                        ChartBar(height: 70, month: "Mar"),
+                        ChartBar(height: 120, month: "Apr"),
+                        ChartBar(height: 100, month: "May"),
+                        ChartBar(height: 140, month: "Jun"),
                       ],
                     ),
                   ),
@@ -417,76 +456,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            const SizedBox(height: 24),
-
-            // Quick Operations Buttons
-            const Text(
-              "RAPID ACTIONS",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    ),
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("New Listing", style: TextStyle(fontWeight: FontWeight.bold)),
-                    onPressed: () {
-                      // Navigate or trigger product dialog
-                    },
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.darkCard,
-                      foregroundColor: AppColors.secondary,
-                      side: const BorderSide(color: AppColors.secondary),
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    ),
-                    icon: const Icon(Icons.verified_user_outlined),
-                    label: const Text("Verify Buyer FFL", style: TextStyle(fontWeight: FontWeight.bold)),
-                    onPressed: () {
-                      // Trigger order dialog
-                    },
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 65),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildChartBar(double heightPercentage, String month) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          width: 24,
-          height: heightPercentage,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.secondary, Color(0xFF7C2D12)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            borderRadius: BorderRadius.circular(4),
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(month, style: const TextStyle(color: AppColors.textMuted, fontSize: 10)),
-      ],
     );
   }
 }
