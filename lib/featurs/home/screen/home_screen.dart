@@ -14,6 +14,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String _selectedCategory = "All";
+
+  final List<Map<String, dynamic>> _allFirearms = [
+    {"imageUrl": 'assets/M9A4.png', "category": "Handgun", "title": "M9A4", "caliber": "9×19mm", "price": 1249.00},
+    {"imageUrl": 'assets/mcx_lt.jpeg', "category": "Rifle", "title": "MCX LT", "caliber": "5.56×45mm", "price": 1999.00},
+    {"imageUrl": 'assets/model10.jpg', "category": "Handgun", "title": "S&W Model 10", "caliber": ".38 Special", "price": 749.00},
+    {"imageUrl": 'assets/XR.jpg', "category": "Rifle", "title": "XR-15", "caliber": "5.56", "price": 1499.00},
+    {"imageUrl": 'assets/colt1849.webp', "category": "Handgun", "title": "Colt 1849", "caliber": ".31 Caliber", "price": 899.00},
+    {"imageUrl": 'assets/beretta.png', "category": "Shotgun", "title": "Beretta A300 Solid Marsh", "caliber": "12 Gauge", "price": 1099.00},
+    {"imageUrl": 'assets/beretta_a300.jpeg', "category": "Shotgun", "title": "A300 Ultima", "caliber": "12 Gauge", "price": 1099.00},
+    {"imageUrl": 'assets/air_rifle.jpeg', "category": "Air Rifle", "title": "AirForce Texan", "caliber": ".45 Cal", "price": 1299.00},
+  ];
+
   @override
   Widget build(BuildContext context) {
     final role = AppState.currentRole;
@@ -148,15 +161,38 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               children: [
-                BuildCategoryCard(title: "Handguns",
+                BuildCategoryCard(
+                  title: "All",
+                  subtitle: 'View All',
+                  icon: Icons.list,
+                  onTap: () {
+                    setState(() { _selectedCategory = "All"; });
+                  },
+                ),
+                BuildCategoryCard(
+                  title: "Handguns",
                   subtitle: 'Pistols',
-                  icon: Icons.settings,),
-                BuildCategoryCard(title: "Rifles",
-                    icon: Icons.api,
-                    subtitle: "Assault & Carbine"),
-                BuildCategoryCard(title: "Shotguns",
-                    icon: Icons.crop_portrait,
-                    subtitle: "Heavy Duty"),
+                  icon: Icons.settings,
+                  onTap: () {
+                    setState(() { _selectedCategory = "Handguns"; });
+                  },
+                ),
+                BuildCategoryCard(
+                  title: "Rifles",
+                  icon: Icons.api,
+                  subtitle: "Assault & Carbine",
+                  onTap: () {
+                    setState(() { _selectedCategory = "Rifles"; });
+                  },
+                ),
+                BuildCategoryCard(
+                  title: "Shotguns",
+                  icon: Icons.crop_portrait,
+                  subtitle: "Heavy Duty",
+                  onTap: () {
+                    setState(() { _selectedCategory = "Shotguns"; });
+                  },
+                ),
               ],
             ),
           ),
@@ -184,72 +220,20 @@ class _HomeScreenState extends State<HomeScreen> {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                FirearmCard(
-                  imageUrl: 'assets/M9A4.png',
-                  category: "Handgun",
-                  title: "M9A4",
-                  caliber: "9×19mm",
-                  price: 1249.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/mcx_lt.jpeg',
-                  category: "Rifle",
-                  title: "MCX LT",
-                  caliber: "5.56×45mm",
-                  price: 1999.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/model10.jpg',
-                  category: "Handgun",
-                  title: "S&W Model 10",
-                  caliber: ".38 Special",
-                  price: 749.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/XR.jpg',
-                  category: "Rifle",
-                  title: "XR-15",
-                  caliber: "5.56",
-                  price: 1499.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/colt1849.webp',
-                  category: "Handgun",
-                  title: "Colt 1849",
-                  caliber: ".31 Caliber",
-                  price: 899.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/beretta.png',
-                  category: "Shotgun",
-                  title: "Beretta A300 Solid Marsh",
-                  caliber: "12 Gauge",
-                  price: 1099.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/beretta_a300.jpeg',
-                  category: "Shotgun",
-                  title: "A300 Ultima",
-                  caliber: "12 Gauge",
-                  price: 1099.00,
-                  onTap: () {},
-                ),
-                FirearmCard(
-                  imageUrl: 'assets/air_rifle.jpeg',
-                  category: "Air Rifle",
-                  title: "AirForce Texan",
-                  caliber: ".45 Cal",
-                  price: 1299.00,
-                  onTap: () {},
-                ),
-              ],
+              children: _allFirearms.where((item) {
+                if (_selectedCategory == "All") return true;
+                if (_selectedCategory == "Handguns" && item["category"] == "Handgun") return true;
+                if (_selectedCategory == "Rifles" && item["category"] == "Rifle") return true;
+                if (_selectedCategory == "Shotguns" && item["category"] == "Shotgun") return true;
+                return false;
+              }).map((item) => FirearmCard(
+                imageUrl: item["imageUrl"],
+                category: item["category"],
+                title: item["title"],
+                caliber: item["caliber"],
+                price: item["price"],
+                onTap: () {},
+              )).toList(),
             ),
           ),
 
@@ -387,6 +371,7 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const NeverScrollableScrollPhysics(),
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
+              padding: EdgeInsets.zero,
               childAspectRatio: 1.7,
               children: [
                 StatCard(title: "Total Revenue",
@@ -407,6 +392,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     iconColor: Colors.amber),
               ],
             ),
+            const SizedBox(height: 30),
             const Text(
               "MONTHLY REVENUE TREND",
               style: TextStyle(color: Colors.white,
@@ -421,35 +407,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: AppColors.darkCard,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Column(
+              child: Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text("\$50k", style: TextStyle(
-                          color: AppColors.textMuted, fontSize: 11)),
-                      Text("\$25k", style: TextStyle(
-                          color: AppColors.textMuted, fontSize: 11)),
-                      Text("0", style: TextStyle(
-                          color: AppColors.textMuted, fontSize: 11)),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    height: 80,
-                    width: double.infinity,
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  SizedBox(
+                    height: 170,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ChartBar(height: 50, month: "Jan"),
-                        ChartBar(height: 90, month: "Feb"),
-                        ChartBar(height: 70, month: "Mar"),
-                        ChartBar(height: 120, month: "Apr"),
-                        ChartBar(height: 100, month: "May"),
-                        ChartBar(height: 140, month: "Jun"),
+                      children: const [
+                        Text("\$50k", style: TextStyle(
+                            color: AppColors.textMuted, fontSize: 11)),
+                        Text("\$25k", style: TextStyle(
+                            color: AppColors.textMuted, fontSize: 11)),
+                        Text("0", style: TextStyle(
+                            color: AppColors.textMuted, fontSize: 11)),
                       ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Container(
+                      height: 170,
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          ChartBar(height: 50, month: "Jan"),
+                          ChartBar(height: 90, month: "Feb"),
+                          ChartBar(height: 70, month: "Mar"),
+                          ChartBar(height: 120, month: "Apr"),
+                          ChartBar(height: 100, month: "May"),
+                          ChartBar(height: 140, month: "Jun"),
+                        ],
+                      ),
                     ),
                   ),
                 ],
