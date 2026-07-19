@@ -3,6 +3,7 @@ import 'package:sadias_empire/featurs/home/widget/firearm_card.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
 import '../widget/build_category_card.dart';
+import '../widget/state_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -299,7 +300,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Analytics Welcome card
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -318,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        "FFL Dealer Active Portal",
+                        "Dealer Operations",
                         style: TextStyle(
                           color: AppColors.secondary,
                           fontWeight: FontWeight.bold,
@@ -342,20 +342,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    "Empire Armory Ltd.",
+                    "Empire Sadia Ltd.",
                     style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   const Text(
-                    "FFL License: #5-74-032-01-XX-9824",
+                    "FFL License: #5-74-Yeo-Bro-XX-9824",
                     style: TextStyle(color: AppColors.textMuted, fontSize: 13),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 35),
 
-            // Dashboard Metrics Grid
             const Text(
               "COMMERCIAL STATS",
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5),
@@ -367,17 +366,14 @@ class _HomeScreenState extends State<HomeScreen> {
               physics: const NeverScrollableScrollPhysics(),
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
-              childAspectRatio: 1.5,
+              childAspectRatio: 1.7,
               children: [
-                _buildStatCard("Total Revenue", "\$48,920.00", Icons.monetization_on, Colors.green),
-                _buildStatCard("Pending FFL Check", "1 Orders", Icons.pending_actions, AppColors.secondary),
-                _buildStatCard("Items Listed", "4 Weapons", Icons.inventory_2_outlined, AppColors.accent),
-                _buildStatCard("Average Rating", "4.9 (182)", Icons.star, Colors.amber),
+                StatCard(title:"Total Revenue",value:"\$48,920.00",icon: Icons.monetization_on,iconColor: Colors.green),
+                StatCard(title: "Pending FFL Check",value: "1 Orders",icon: Icons.pending_actions,iconColor:  AppColors.secondary),
+                StatCard(title: "Items Listed", value: "4 Weapons",icon: Icons.inventory_2_outlined,iconColor:  AppColors.accent),
+                StatCard(title: "Average Rating",value:  "4.9 (182)",icon: Icons.star,iconColor: Colors.amber),
               ],
             ),
-            const SizedBox(height: 24),
-
-            // Visual Sales Chart Mockup
             const Text(
               "MONTHLY REVENUE TREND",
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5),
@@ -468,104 +464,6 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 80),
           ],
         ),
-      ),
-    );
-  }
-
-
-  Widget _buildFirearmCard(Firearm gun) {
-    return Container(
-      width: 160,
-      margin: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: AppColors.darkCard,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.primary.withOpacity(0.5)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-            child: Image.network(
-              gun.imageUrl,
-              height: 100,
-              width: 160,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) => Container(
-                height: 100,
-                color: Colors.grey[800],
-                child: const Icon(Icons.image_not_supported, color: Colors.white54),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  gun.category.toUpperCase(),
-                  style: const TextStyle(color: AppColors.secondary, fontSize: 9, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  gun.name,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  gun.caliber,
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 10),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "\$${gun.price.toStringAsFixed(2)}",
-                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        color: AppColors.primary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.arrow_forward_ios, size: 10, color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildStatCard(String title, String val, IconData icon, Color color) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.darkCard,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(title, style: const TextStyle(color: AppColors.textMuted, fontSize: 11, fontWeight: FontWeight.bold)),
-              Icon(icon, color: color, size: 16),
-            ],
-          ),
-          Text(val, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-        ],
       ),
     );
   }
