@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(width: 8),
             Text(
-              role == UserRole.buyer ? "EMPIRE DEPOT" : "DEALER COMMAND",
+              role == UserRole.buyer ? "SADIA'S EMPIRE" : "DEALER COMMAND",
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.0,
