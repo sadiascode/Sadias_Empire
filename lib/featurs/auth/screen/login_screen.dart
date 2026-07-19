@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const Center(
                 child: Text(
-                  "Sadia's Empire - Tactical Portal",
+                  "Sadia's Empire Arms",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

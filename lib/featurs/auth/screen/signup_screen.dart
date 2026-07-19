@@ -42,7 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 10),
 
-              // Operational Mode / Role Toggle
+              // Operational Role Toggle
               const Text(
                 "Select Access Portal",
                 style: TextStyle(

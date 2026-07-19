@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
+import '../widget/build_category_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Image.asset(
               'assets/logo.png',
-              height: 36,
+              height: 40,
               errorBuilder: (context, error, stackTrace) => const Icon(
                 Icons.radar,
                 color: AppColors.secondary,
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     border: Border.all(color: AppColors.secondary),
                   ),
                   child: const Text(
-                    "FEDERAL COMPLIANCE VERIFIED",
+                    "Sadia's Empire Arms",
                     style: TextStyle(
                       color: AppColors.secondary,
                       fontSize: 10,
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 12),
                 const Text(
-                  "Tactical Elite Weapons",
+                  "Licensed Firearms & Tactical Equipment",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 6),
                 const Text(
-                  "Explore the empire's collection. Secure background checks integrated directly with licensed FFL dealers.",
+                  "Browse our catalog with confidence. Secure transactions through licensed firearm dealers.",
                   style: TextStyle(
                     color: AppColors.textMuted,
                     fontSize: 13,
@@ -140,11 +141,9 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               children: [
-                _buildCategoryCard("Handguns", Icons.settings_input_hdmi, "Pistols"),
-                _buildCategoryCard("Rifles", Icons.api, "Assault & Carbine"),
-                _buildCategoryCard("Shotguns", Icons.crop_portrait, "Heavy Duty"),
-                _buildCategoryCard("Optics", Icons.remove_red_eye_outlined, "Scoping"),
-                _buildCategoryCard("Ammo", Icons.bolt, "Calibers"),
+                BuildCategoryCard (  title:"Handguns", subtitle: 'Pistols', icon: Icons.settings,),
+                BuildCategoryCard (title: "Rifles",icon:  Icons.api,subtitle:  "Assault & Carbine"),
+                BuildCategoryCard (title: "Shotguns",icon:  Icons.crop_portrait,subtitle:  "Heavy Duty"),
               ],
             ),
           ),
@@ -165,35 +164,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     letterSpacing: 0.5,
                   ),
                 ),
-                Text(
-                  "SEE ALL",
-                  style: TextStyle(
-                    color: AppColors.secondary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ],
             ),
           ),
           const SizedBox(height: 12),
-          ValueListenableBuilder<List<Firearm>>(
-            valueListenable: AppState.firearmsNotifier,
-            builder: (context, firearms, child) {
-              return SizedBox(
-                height: 230,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  itemCount: firearms.length,
-                  itemBuilder: (context, index) {
-                    final gun = firearms[index];
-                    return _buildFirearmCard(gun);
-                  },
-                ),
-              );
-            },
-          ),
 
           const SizedBox(height: 20),
 
@@ -425,27 +399,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildCategoryCard(String name, IconData icon, String subtitle) {
-    return Container(
-      width: 120,
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
-        color: AppColors.darkCard,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.primary.withOpacity(0.4)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: AppColors.secondary, size: 24),
-          const SizedBox(height: 4),
-          Text(name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
-          const SizedBox(height: 2),
-          Text(subtitle, style: const TextStyle(color: AppColors.textMuted, fontSize: 10)),
-        ],
-      ),
-    );
-  }
 
   Widget _buildFirearmCard(Firearm gun) {
     return Container(
