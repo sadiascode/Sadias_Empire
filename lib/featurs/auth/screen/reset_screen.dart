@@ -20,8 +20,8 @@ class _ResetScreenState extends State<ResetScreen> {
     return Scaffold(
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 320,
+        svgHeight: 350,
+        svgWidth: 350,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

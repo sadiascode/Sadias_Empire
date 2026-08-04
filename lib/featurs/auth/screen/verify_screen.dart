@@ -24,8 +24,8 @@ class _VerifyScreenState extends State<VerifyScreen> {
     return Scaffold(
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 320,
+        svgHeight: 350,
+        svgWidth: 350,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

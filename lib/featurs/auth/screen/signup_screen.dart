@@ -23,8 +23,8 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: AppColors.darkBackground,
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 320,
+        svgHeight: 350,
+        svgWidth: 350,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
