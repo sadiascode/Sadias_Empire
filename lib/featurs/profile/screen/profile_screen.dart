@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
+import '../widget/build_permit.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -19,9 +20,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
-        title: const Text(
-          "SECURE PROFILE",
-          style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16),
+        title: Center(
+          child: const Text(
+            "PROFILE",
+            style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16, color: AppColors.textLight),
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -50,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 radius: 30,
                 backgroundColor: AppColors.primary,
                 child: Text(
-                  "JD",
+                  "SRR",
                   style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -62,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Row(
                       children: [
                         const Text(
-                          "John Doe",
+                          "Sadia Rahman Roha",
                           style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 6),
@@ -82,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     const SizedBox(height: 4),
                     const Text(
-                      "john.doe@example.com",
+                      "Sadia.don@example.com",
                       style: TextStyle(color: AppColors.textMuted, fontSize: 13),
                     ),
                   ],
@@ -107,18 +110,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Column(
             children: [
-              _buildPermitItem(
+              BuildPermit(
                 Icons.badge_outlined,
                 "Concealed Carry Weapon (CCW)",
-                "Permit ID: #CCW-NY-9824\nExpires: 08/2029",
+                "Permit ID: #Yeo-Bro\nExpires: 08/2029",
                 "VERIFIED",
                 Colors.green,
               ),
               const Divider(color: Color(0xFF334155), height: 24),
-              _buildPermitItem(
+              BuildPermit(
                 Icons.shield_outlined,
                 "State Firearm Owner ID (FOID)",
-                "FOID ID: #FOID-1082-99\nExpires: 05/2031",
+                "FOID ID: #Yeo-Bro-Hey\nExpires: 05/2031",
                 "VERIFIED",
                 Colors.green,
               ),
@@ -214,6 +217,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         const SizedBox(height: 24),
 
+
         // Dealer Credentials
         const Text(
           "FEDERAL LICENSE DETAILS (FFL)",
@@ -228,7 +232,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Column(
             children: [
-              _buildPermitItem(
+              BuildPermit(
                 Icons.document_scanner_outlined,
                 "Federal Firearms License (FFL)",
                 "License: #5-74-032-01-XX-9824\nExpires: 10/2028",
@@ -236,7 +240,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Colors.green,
               ),
               const Divider(color: Color(0xFF334155), height: 24),
-              _buildPermitItem(
+              BuildPermit(
                 Icons.assignment_ind_outlined,
                 "SOT Special Occupational Tax",
                 "Class: Class 3 SOT (NFA items)\nExpires: 07/2027",
@@ -284,38 +288,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         const SizedBox(height: 60),
-      ],
-    );
-  }
-
-  Widget _buildPermitItem(IconData icon, String title, String details, String statusText, Color statusColor) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, color: AppColors.secondary, size: 24),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
-              const SizedBox(height: 4),
-              Text(details, style: const TextStyle(color: AppColors.textMuted, fontSize: 11, height: 1.3)),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            color: statusColor.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(4),
-            border: Border.all(color: statusColor),
-          ),
-          child: Text(
-            statusText,
-            style: TextStyle(color: statusColor, fontSize: 10, fontWeight: FontWeight.bold),
-          ),
-        ),
       ],
     );
   }

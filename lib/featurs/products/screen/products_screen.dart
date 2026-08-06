@@ -13,7 +13,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   String _selectedCategory = "All";
   final TextEditingController _searchController = TextEditingController();
 
-  final List<String> _categories = ["All", "Handguns", "Rifles", "Shotguns", "Optics", "Ammo"];
+  final List<String> _categories = ["All", "Handguns", "Rifles", "Shotguns",];
 
   @override
   void dispose() {
@@ -30,9 +30,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
-        title: Text(
-          role == UserRole.buyer ? "ARMORY CATALOG" : "MY INVENTORY",
-          style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16),
+        title: Center(
+          child: Text(
+            role == UserRole.buyer ? "ARMORY CATALOG" : "MY INVENTORY",
+            style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16, color: AppColors.textLight),
+          ),
         ),
         actions: [
           if (role == UserRole.seller)

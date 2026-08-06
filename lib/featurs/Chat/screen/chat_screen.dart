@@ -88,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: const Color(0xFF121215),
+        backgroundColor: AppColors.black,
         title: const Text(
           "Chat",
           style: TextStyle(

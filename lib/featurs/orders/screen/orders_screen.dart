@@ -19,9 +19,11 @@ class _OrdersScreenState extends State<OrdersScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
-        title: Text(
-          role == UserRole.buyer ? "MY ARMORY TRACK" : "FFL VERIFICATIONS",
-          style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16),
+        title: Center(
+          child: Text(
+            role == UserRole.buyer ? "MY ARMORY TRACK" : "FFL VERIFICATIONS",
+            style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.8, fontSize: 16, color: AppColors.textLight),
+          ),
         ),
       ),
       body: ValueListenableBuilder<List<FirearmOrder>>(
