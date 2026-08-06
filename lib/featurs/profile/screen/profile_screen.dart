@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sadias_empire/common/custom_button.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
 import '../widget/build_permit.dart';
+import '../widget/build_profile.dart';
+import '../widget/log_out.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -144,25 +147,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Column(
             children: [
-              _buildProfileOption(Icons.room_preferences_outlined, "Preferred Local FFL Dealer", "Sadia's Gun Emporium"),
-              _buildProfileOption(Icons.history, "My Purchase History", "1 Completed Order"),
-              _buildProfileOption(Icons.fingerprint, "Biometric Authentication", "FaceID Enabled"),
-              _buildProfileOption(Icons.security, "Data Privacy & Encryption", "AES-256 Enabled"),
+              BuildProfile(Icons.room_preferences_outlined, "Preferred Local FFL Dealer", "Sadia's Gun Emporium"),
+              BuildProfile(Icons.history, "My Purchase History", "1 Completed Order"),
+              BuildProfile(Icons.fingerprint, "Biometric Authentication", "FaceID Enabled"),
+              BuildProfile(Icons.security, "Data Privacy & Encryption", "AES-256 Enabled"),
             ],
           ),
         ),
 
-        const SizedBox(height: 20),
+        const SizedBox(height: 35),
         Center(
-          child: TextButton(
-            onPressed: () {
-              AppState.currentRole = UserRole.buyer;
-              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-            },
-            child: const Text(
-              "Log Out Secure Session",
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-            ),
+          child: Center(
+              child: CustomButton(
+                  text: "Logout", onTap: (){ LogOut(context);})
           ),
         ),
         const SizedBox(height: 60),
@@ -266,45 +263,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Column(
             children: [
-              _buildProfileOption(Icons.business, "Storefront & Pickup Location", "55 Empire Blvd, New York"),
-              _buildProfileOption(Icons.contact_phone, "Assigned Agent Phone", "+1 (800) 555-FIRE"),
-              _buildProfileOption(Icons.policy_outlined, "Shipping & Compliance Rules", "Ground Shipping Only"),
-              _buildProfileOption(Icons.inventory, "Automated NICS Report", "Connected to ATF NICS Link"),
+              BuildProfile(Icons.business, "Storefront & Pickup Location", "55 Empire Blvd, New York"),
+              BuildProfile(Icons.contact_phone, "Assigned Agent Phone", "+1 (800) 555-FIRE"),
+              BuildProfile(Icons.policy_outlined, "Shipping & Compliance Rules", "Ground Shipping Only"),
+              BuildProfile(Icons.inventory, "Automated NICS Report", "Connected to ATF NICS Link"),
             ],
           ),
         ),
 
-        const SizedBox(height: 20),
+        const SizedBox(height: 35),
         Center(
-          child: TextButton(
-            onPressed: () {
-              AppState.currentRole = UserRole.buyer;
-              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-            },
-            child: const Text(
-              "Log Out Secure Session",
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-            ),
-          ),
+          child: CustomButton(
+              text: "Logout", onTap: (){ LogOut(context);})
         ),
         const SizedBox(height: 60),
       ],
-    );
-  }
-
-  Widget _buildProfileOption(IconData icon, String title, String value) {
-    return ListTile(
-      leading: Icon(icon, color: AppColors.secondary),
-      title: Text(title, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(value, style: const TextStyle(color: AppColors.textMuted, fontSize: 12)),
-          const SizedBox(width: 4),
-          const Icon(Icons.arrow_forward_ios, color: AppColors.textMuted, size: 12),
-        ],
-      ),
-      onTap: () {},
     );
   }
 }
