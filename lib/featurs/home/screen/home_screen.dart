@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Row(
           children: [
             Image.asset(

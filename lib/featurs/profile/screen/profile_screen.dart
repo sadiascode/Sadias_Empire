@@ -23,6 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Center(
           child: const Text(
             "PROFILE",

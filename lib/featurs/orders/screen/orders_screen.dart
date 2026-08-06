@@ -19,6 +19,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Center(
           child: Text(
             role == UserRole.buyer ? "MY ARMORY TRACK" : "FFL VERIFICATIONS",

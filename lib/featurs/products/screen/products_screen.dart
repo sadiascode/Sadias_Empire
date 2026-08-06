@@ -30,6 +30,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Center(
           child: Text(
             role == UserRole.buyer ? "ARMORY CATALOG" : "MY INVENTORY",
