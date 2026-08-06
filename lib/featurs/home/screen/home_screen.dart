@@ -41,25 +41,24 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Image.asset(
               'assets/logo.png',
-              height: 40,
+              height: 50,
               errorBuilder: (context, error, stackTrace) =>
               const Icon(
                 Icons.radar,
                 color: AppColors.secondary,
               ),
             ),
-            const SizedBox(width: 8),
-            Center(
-              child: Text(
-                role == UserRole.buyer ? "SADIA'S EMPIRE" : "DEALER COMMAND",
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.0,
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
+            const Spacer(),
+            Text(
+              role == UserRole.buyer ? "SADIA'S EMPIRE" : "DEALER COMMAND",
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.0,
+                fontSize: 16,
+                color: Colors.white,
               ),
             ),
+            const Spacer(),
           ],
         ),
         actions: [
