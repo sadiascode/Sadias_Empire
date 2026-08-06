@@ -60,7 +60,7 @@ class AppState {
       condition: "New",
       sellerName: "Empire Tactical Armory",
       description: "Match-grade barrel, customized slide cuts, fiber optic front sights, and enhanced grip texture. Perfect for concealed carry and home defense.",
-      imageUrl: "https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&q=80&w=400",
+      imageUrl: "assets/M9A4.png",
     ),
     Firearm(
       id: "2",
@@ -71,7 +71,7 @@ class AppState {
       condition: "New",
       sellerName: "Sadia's Gun Emporium",
       description: "Direct impingement system, 16-inch cold hammer-forged barrel, free-float M-LOK handguard, and adjustable stock. Extremely reliable.",
-      imageUrl: "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&q=80&w=400",
+      imageUrl: "assets/mcx_lt.jpeg",
     ),
     Firearm(
       id: "3",
@@ -82,18 +82,7 @@ class AppState {
       condition: "Like New",
       sellerName: "Viper Arms",
       description: "Semi-automatic tactical shotgun with 7+1 capacity. Ghost ring sights, Picatinny rail for optics, and heavy-duty synthetic stock.",
-      imageUrl: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=400",
-    ),
-    Firearm(
-      id: "4",
-      name: "APEX Marksman Scope 4-16x50",
-      category: "Optics",
-      price: 349.50,
-      caliber: "N/A",
-      condition: "New",
-      sellerName: "Empire Tactical Armory",
-      description: "First focal plane reticle, fully multi-coated glass, lockable turrets, and waterproof construction. High precision target acquisition.",
-      imageUrl: "https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&q=80&w=400",
+      imageUrl: "assets/beretta.png",
     ),
   ]);
 
@@ -109,7 +98,7 @@ class AppState {
         condition: "New",
         sellerName: "Empire Tactical Armory",
         description: "",
-        imageUrl: "",
+        imageUrl: "assets/beretta.png",
       ),
       buyerName: "John Doe",
       buyerEmail: "john.doe@example.com",

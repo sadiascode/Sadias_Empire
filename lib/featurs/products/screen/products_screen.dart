@@ -169,9 +169,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
         children: [
           Stack(
             children: [
-              Image.network(
+              Image.asset(
                 gun.imageUrl,
-                height: 110,
+                height: 150,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
@@ -270,6 +270,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     );
   }
 
+// after press buy button
   void _showProductPurchaseSheet(BuildContext context, Firearm gun) {
     String selectedFFL = "Sadia's Gun Emporium (FFL #5-74-XXX-01)";
 
@@ -370,8 +371,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           final order = FirearmOrder(
                             orderId: "ORD-${1000 + firearmsNotifierLength()}",
                             firearm: gun,
-                            buyerName: "John Doe",
-                            buyerEmail: "john.doe@example.com",
+                            buyerName: "Sadia Boss",
+                            buyerEmail: "Sadia.boss@example.com",
                             fflDealer: selectedFFL,
                             date: "Today",
                             status: "FFL Processing",
@@ -450,8 +451,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     DropdownMenuItem(value: "Handguns", child: Text("Handguns")),
                     DropdownMenuItem(value: "Rifles", child: Text("Rifles")),
                     DropdownMenuItem(value: "Shotguns", child: Text("Shotguns")),
-                    DropdownMenuItem(value: "Optics", child: Text("Optics")),
-                    DropdownMenuItem(value: "Ammo", child: Text("Ammo")),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -528,7 +527,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   condition: condition,
                   description: descController.text,
                   sellerName: "Empire Tactical Armory",
-                  imageUrl: "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&q=80&w=400",
+                  imageUrl: "assets/beretta.png",
                 );
                 AppState.addFirearm(gun);
                 Navigator.pop(context);
