@@ -70,13 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             onPressed: () {},
           ),
-          IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
-            onPressed: () {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/', (route) => false);
-            },
-          ),
         ],
       ),
       body: role == UserRole.buyer ? _buildBuyerHome() : _buildSellerHome(),
@@ -380,7 +373,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     value: "\$48,920.00",
                     icon: Icons.monetization_on,
                     iconColor: Colors.green),
-                StatCard(title: "Pending FFL Check",
+                StatCard(title: "Check Pending",
                     value: "1 Orders",
                     icon: Icons.pending_actions,
                     iconColor: AppColors.secondary),
