@@ -48,13 +48,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(width: 8),
-            Text(
-              role == UserRole.buyer ? "SADIA'S EMPIRE" : "DEALER COMMAND",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.0,
-                fontSize: 16,
-                color: Colors.white,
+            Center(
+              child: Text(
+                role == UserRole.buyer ? "SADIA'S EMPIRE" : "DEALER COMMAND",
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
