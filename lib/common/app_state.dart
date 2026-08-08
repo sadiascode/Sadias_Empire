@@ -84,6 +84,28 @@ class AppState {
       description: "Semi-automatic tactical shotgun with 7+1 capacity. Ghost ring sights, Picatinny rail for optics, and heavy-duty synthetic stock.",
       imageUrl: "assets/beretta.png",
     ),
+    Firearm(
+      id: "4",
+      name: "S&W Model 10",
+      category: "Handguns",
+      price: 749.00,
+      caliber: ".38 Special",
+      condition: "Like New",
+      sellerName: "Viper Arms",
+      description: "S&W Model 10 handgun chambered in .38 Special.",
+      imageUrl: "assets/model10.jpg",
+    ),
+    Firearm(
+      id: "5",
+      name: "Colt 1849",
+      category: "Handgun",
+      price: 899.00,
+      caliber: ".31 Caliber",
+      condition: "Like New",
+      sellerName: "Viper Arms",
+      description: "Colt 1849 handgun chambered in .31 Caliber.",
+      imageUrl: "assets/colt1849.webp",
+    ),
   ]);
 
   static final ValueNotifier<List<FirearmOrder>> ordersNotifier = ValueNotifier<List<FirearmOrder>>([
