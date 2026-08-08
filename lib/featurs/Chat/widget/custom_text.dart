@@ -72,7 +72,7 @@ class _CustomTextState extends State<CustomText> {
                         ),
                         const Spacer(),
                         IconButton(
-                          icon: const Icon(Icons.delete_outline, color: Colors.red),
+                          icon: const Icon(Icons.delete_outline, color: AppColors.secondary,),
                           onPressed: () {
                             setState(() {
                               _stagedRecording = null;
@@ -95,7 +95,7 @@ class _CustomTextState extends State<CustomText> {
                 ),
                 IconButton(
                   onPressed: _handleSend,
-                  icon:  Icon(Icons.send, color: AppColors.primary, size: 24),
+                  icon:  Icon(Icons.send, color: AppColors.secondary, size: 24),
                 ),
               ],
             ),

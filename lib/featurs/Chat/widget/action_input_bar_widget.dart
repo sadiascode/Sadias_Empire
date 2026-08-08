@@ -162,7 +162,7 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
                 child: const Icon(
                   Icons.camera_alt,
                   size: 32,
-                  color: AppColors.primary,
+                  color: AppColors.secondary,
                 ),
               ),
             ),
@@ -178,7 +178,7 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
               ),
               child: const Icon(
                 Icons.mic,
-                color: AppColors.black,
+                color: AppColors.secondary,
                 size: 28,
               ),
             ),
@@ -197,7 +197,7 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
                 child: const Icon(
                   Icons.photo_library,
                   size: 32,
-                  color: AppColors.primary,
+                  color: AppColors.secondary,
                 ),
               ),
             ),
