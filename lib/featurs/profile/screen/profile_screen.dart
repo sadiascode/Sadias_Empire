@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sadias_empire/common/custom_button.dart';
+import 'package:sadias_empire/featurs/profile/screen/edit_screen.dart';
 import '../../../common/app_state.dart';
 import '../../../common/custom_color.dart';
 import '../widget/build_permit.dart';
@@ -93,11 +94,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     Positioned(
                       right: 0,
-                      top: 12,
-                      child: Icon(
-                        Icons.edit,
-                        color: AppColors.textLight,
-                        size: 25,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const EditScreen(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.edit,
+                          color: AppColors.textLight,
+                          size: 25,
+                        ),
                       ),
                     ),
                   ],
@@ -190,12 +200,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Row(
             children: [
-              const CircleAvatar(
+              const  CircleAvatar(
                 radius: 30,
-                backgroundColor: AppColors.secondary,
-                child: Icon(Icons.storefront, color: Colors.white, size: 28),
+                backgroundColor: AppColors.primary,
+                child: Icon(
+                  Icons.person,
+                  size: 40,
+                  color: AppColors.textLight,
+                ),
               ),
+
               const SizedBox(width: 16),
+
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,18 +220,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         const Text(
                           "Empire Tactical Armory",
-                          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        const SizedBox(width: 6),
-                        const Icon(Icons.verified, color: AppColors.secondary, size: 18),
                       ],
                     ),
+
                     const SizedBox(height: 4),
+
                     const Text(
                       "FFL Class: Type 01 Dealer",
-                      style: TextStyle(color: AppColors.textMuted, fontSize: 13),
+                      style: TextStyle(
+                        color: AppColors.textMuted,
+                        fontSize: 13,
+                      ),
                     ),
                   ],
+                ),
+              ),
+
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const EditScreen(),
+                    ),
+                  );
+                },
+                tooltip: "Edit",
+                icon: const Icon(
+                  Icons.edit,
+                  color: AppColors.textLight,
+                  size: 22,
                 ),
               ),
             ],

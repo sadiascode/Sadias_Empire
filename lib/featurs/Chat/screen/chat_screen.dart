@@ -90,10 +90,10 @@ class _ChatScreenState extends State<ChatScreen> {
         elevation: 0,
         backgroundColor: AppColors.black,
         title: const Text(
-          "Chat",
+          "CHAT",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
