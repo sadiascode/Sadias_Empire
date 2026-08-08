@@ -33,7 +33,7 @@ class _AppShellState extends State<AppShell> {
       _bottomTabs = [
         BottomTabItem(
           label: "Home",
-          icon: const Icon(Icons.dashboard_outlined),
+          icon: const Icon(Icons.home),
           page: const HomeScreen(),
         ),
         BottomTabItem(
@@ -54,7 +54,7 @@ class _AppShellState extends State<AppShell> {
         ),
         BottomTabItem(
           label: "Profile",
-          icon: const Icon(Icons.account_circle_outlined),
+          icon: const Icon(Icons.person),
           page: const ProfileScreen(),
         ),
       ];
@@ -62,7 +62,7 @@ class _AppShellState extends State<AppShell> {
       _bottomTabs = [
         BottomTabItem(
           label: "Dashboard",
-          icon: const Icon(Icons.analytics_outlined),
+          icon: const Icon(Icons.home),
           page: const HomeScreen(),
         ),
         BottomTabItem(
@@ -83,7 +83,7 @@ class _AppShellState extends State<AppShell> {
         ),
         BottomTabItem(
           label: "Dealer Profile",
-          icon: const Icon(Icons.admin_panel_settings_outlined),
+          icon: const Icon(Icons.person),
           page: const ProfileScreen(),
         ),
       ];
@@ -137,7 +137,7 @@ class SubPageScaffold extends StatelessWidget {
       return [
         BottomTabItem(
           label: "Home",
-          icon: const Icon(Icons.dashboard_outlined),
+          icon: const Icon(Icons.home),
           page: const HomeScreen(),
         ),
         BottomTabItem(
@@ -158,7 +158,7 @@ class SubPageScaffold extends StatelessWidget {
         ),
         BottomTabItem(
           label: "Profile",
-          icon: const Icon(Icons.account_circle_outlined),
+          icon: const Icon(Icons.person),
           page: const ProfileScreen(),
         ),
       ];
@@ -166,7 +166,7 @@ class SubPageScaffold extends StatelessWidget {
       return [
         BottomTabItem(
           label: "Dashboard",
-          icon: const Icon(Icons.analytics_outlined),
+          icon: const Icon(Icons.home),
           page: const HomeScreen(),
         ),
         BottomTabItem(
@@ -187,7 +187,7 @@ class SubPageScaffold extends StatelessWidget {
         ),
         BottomTabItem(
           label: "Dealer Profile",
-          icon: const Icon(Icons.admin_panel_settings_outlined),
+          icon: const Icon(Icons.person),
           page: const ProfileScreen(),
         ),
       ];
