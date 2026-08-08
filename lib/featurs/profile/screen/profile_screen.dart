@@ -56,41 +56,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const CircleAvatar(
                 radius: 30,
                 backgroundColor: AppColors.primary,
-                child: Text(
-                  "SRR",
-                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                child: Icon(
+                  Icons.person,
+                  size: 40,
+                  color: AppColors.textLight,
                 ),
               ),
               const SizedBox(width: 16),
+
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
                           "Sadia Rahman Roha",
-                          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(width: 6),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: Colors.green.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: Colors.green),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
-                          child: const Text(
-                            "PASSED CHECK",
-                            style: TextStyle(color: Colors.green, fontSize: 9, fontWeight: FontWeight.bold),
+                        ),
+
+                        const SizedBox(height: 4),
+
+                        const Text(
+                          "Sadia.don@example.com",
+                          style: TextStyle(
+                            color: AppColors.textMuted,
+                            fontSize: 13,
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      "Sadia.don@example.com",
-                      style: TextStyle(color: AppColors.textMuted, fontSize: 13),
+
+                    Positioned(
+                      right: 0,
+                      top: 12,
+                      child: Icon(
+                        Icons.edit,
+                        color: AppColors.textLight,
+                        size: 25,
+                      ),
                     ),
                   ],
                 ),
