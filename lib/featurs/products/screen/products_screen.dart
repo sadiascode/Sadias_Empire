@@ -136,7 +136,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 }
 
                 return GridView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.only(left: 16, right: 16, bottom: 110),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 12,
@@ -430,7 +430,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     labelText: "Weapon Name",
-                    labelStyle: TextStyle(color: AppColors.textMuted),
+                    labelStyle: TextStyle(color: AppColors.textLight),
                     enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary)),
                   ),
                 ),
