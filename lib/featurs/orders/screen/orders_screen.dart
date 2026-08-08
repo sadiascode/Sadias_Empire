@@ -88,19 +88,13 @@ class _OrdersScreenState extends State<OrdersScreen> {
           const SizedBox(height: 10),
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  order.firearm.imageUrl,
-                  height: 60,
-                  width: 80,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    height: 60,
-                    width: 80,
-                    color: Colors.grey[800],
-                    child: const Icon(Icons.image_not_supported, color: Colors.white54, size: 20),
-                  ),
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: AppColors.primary,
+                child: Icon(
+                  Icons.security,
+                  size: 35,
+                  color: AppColors.textLight,
                 ),
               ),
               const SizedBox(width: 12),
